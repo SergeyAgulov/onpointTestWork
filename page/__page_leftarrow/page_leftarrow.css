@@ -1,0 +1,11 @@
+.page_leftarrow {
+	position: absolute;
+	left: 2%;
+	top: 45%;
+	width: 3%;
+	height: auto;
+}
+.page_leftarrow > img {
+	width: 100%;
+	height: auto;
+}
