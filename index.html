@@ -31,11 +31,19 @@
     				</div>
     				<form action="" class="slide-bottom_form">
     					<div class='slide-bottom_input-range'>
-    						<input type="range" min="1" max="21">
+    						<input type="range" min="1" max="21" id='range'>
     					</div>
     					
     					
     				</form>
+    				<script>
+							let valueLog = function() {
+							let rangeValue = document.getElementById('range').value;
+							console.log(rangeValue);
+						}
+						let range = document.getElementById('range');
+						range.addEventListener('click', valueLog);
+					</script>
     			</section>
     		</div>
     		
