@@ -212,8 +212,21 @@ table {
   margin-left: 12.5%;
   margin-right: 12%;
   padding: 0;
+  z-index: 2;
 }
 .slide-bottom_numbers img {
+  width: 100%;
+  height: auto;
+}
+.slide-bottom_mark {
+  z-index: 1;
+  position: absolute;
+  width: 3.2%;
+  left: 11.5%;
+  top: 2%;
+  height: 3%;
+}
+.slide-bottom_mark img {
   width: 100%;
   height: auto;
 }
@@ -230,7 +243,6 @@ table {
   height: 10%;
   margin-left: 10%;
   margin-right: auto;
-  font-size: 100%;
 }
 .slide-bottom_input-range input {
   position: absolute;
@@ -240,9 +252,9 @@ table {
 .slide-bottom_input-radio {
   position: absolute;
   width: 50%;
-  height: 20%;
+  height: 22%;
   top: 60%;
-  left: 25%;
+  left: 26.5%;
 }
 .slide-bottom_input-radio input {
   position: absolute;
@@ -254,14 +266,15 @@ table {
   float: left;
   display: block;
   height: 100%;
-  width: 30%;
+  width: 28%;
   margin-right: 5%;
 }
 #radioLabel1 {
   background: url('img/day-button.png');
   background-size: cover;
 }
-#radio1:checked + label::before {
+#radio1:checked + #radioLabel1 {
+  transition: 200ms;
   background: url('img/day-pushed-button.png');
   background-size: cover;
 }
@@ -269,9 +282,19 @@ table {
   background: url('img/week-button.png');
   background-size: cover;
 }
+#radio2:checked + #radioLabel2 {
+  transition: 200ms;
+  background: url('img/week-pushed-button.png');
+  background-size: cover;
+}
 #radioLabel3 {
   margin-right: 0;
   background: url('img/mounth-button.png');
+  background-size: cover;
+}
+#radio3:checked + #radioLabel3 {
+  transition: 200ms;
+  background: url('img/mounth-pushed-button.png');
   background-size: cover;
 }
 form {
@@ -289,8 +312,8 @@ input[type=range] {
 input[type='range']::-webkit-slider-thumb {
   -webkit-appearance: none;
   display: block;
-  width: 5em;
-  height: 5em;
+  width: 60px;
+  height: 60px;
   cursor: pointer;
   background: url('img/roller%20white.png');
   background-size: 100% 100%;

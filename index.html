@@ -7,7 +7,7 @@
     
 </head>
 <body>
-   		<div class="slide-top_pill">
+   		<div class="slide-top_pill"  draggable="true" id='pillFirstSlide'>
     		<img src="./img/780px-Pill.svg%5B1%5D.png" alt="Pill">
 		</div>
     	<div class='page'>
@@ -22,59 +22,36 @@
     		<div class='slide' id='firstSlide'>
     			<section class="slide-top">
     				
-    				<div class='slide-top_patient' id='patientFirstSlide'>
-    					<img src="img/sad.png" alt="">
+    				<div class='slide-top_patient' >
+    					<img src="img/sad.png" alt="patient" id='patientFirstSlide'>
     				</div>
     			</section>
     			<section class="slide-bottom">
     				<div class="slide-bottom_numbers">
-    					<img src="img/figures.png" alt="">
+    					<img src="img/figures.png" alt="numbers">
+    				</div>
+    				<div class='slide-bottom_mark' id='marker'>
+    					<img src="img/roller%20red.png" alt="numbers">
     				</div>
     				<form action="#" class="slide-bottom_form" id='form1' name="form1">
     					<div class='slide-bottom_input-range'>
     						<input type="range" min="1" max="21" id='range' value="1">
     					</div>
     					<div class="slide-bottom_input-radio">
+    						<input type="radio" name="inputRadio" id='radio1' value="1">
     						<label for="radio1" id="radioLabel1"></label>
-    						<input type="radio" name="inputRadio" id='radio1' value="1" checked>
-     						<label for="radio2" id="radioLabel2"></label>
     						<input type="radio" name="inputRadio" id='radio2' value="2">
-    						<label for="radio3" id="radioLabel3"></label>
+     						<label for="radio2" id="radioLabel2"></label>
     						<input type="radio" name="inputRadio" id='radio3' value="3">
+    						<label for="radio3" id="radioLabel3"></label>
+    						
     					</div>
     				</form>
-    				<script>
-							
-						
-							//Значение range
-							let valueLog = function() {
-							let rangeValue = document.getElementById('range').value;
-							console.log(rangeValue);
-						}
-						
-						//Позиция таблетки
-							let pillPosition = function() {
-							let pill = document.getElementById('pillFirstSlide');
-							console.log(pill);
-							positonPill = pill.getBoundingClientRect();
-							console.log(positonPill.top);
-							console.log(positonPill.bottom);
-							console.log(positonPill.left);
-							console.log(positonPill.right);
-						}
-							
-							let range = document.getElementById('range');
-							range.addEventListener('click', valueLog);
-							range.addEventListener('click', pillPosition);
-						
-						//перемещение таблетки
-						
-						
-						
-					</script>
+    				
     			</section>
     		</div>
     		
     	</div>
+	<script type="text/javascript" src="script.js"></script>	
 </body>
 </html>
