@@ -38,6 +38,7 @@
 	
 	//скрытие картинки
 	let picture = document.getElementById('patientSad');
+	let picFlag = false;
 	let pictureCoords = function () {
 		
 		let pictureLeft = picture.getBoundingClientRect().left;
@@ -48,9 +49,13 @@
 		let pillRight = pill.getBoundingClientRect().right;
 		let pillTop = pill.getBoundingClientRect().top;
 		let pillBottom = pill.getBoundingClientRect().bottom;
+		
 		if (pillLeft > pictureLeft && pillRight < pictureRight && pillBottom < pictureBottom && pillTop > pictureTop) {
 			pillInvis();
 			pictureChange();
+			picFlag = true;
+		} else {
+			picFlag = false;
 		};
 	};
 
@@ -66,25 +71,7 @@
 		sad.style.display = 'none';
 		happy.style.display = 'block';
 		}
-// анимация исчезновения
-	
-	
-	let transOpasity = function (elem, timeout, split) {
-		let interval = timeout / split;
-		let splitOp = 1.0 / split;
-		elem.style.opacity = '1.0';
-		let opacity = 1.0;
-		let time = 0;
-		let opacityChenge = function () {
-			
-			console.log(opacity);
-		}
-		let i=0;
-		if (i<10) {
-			setInterval(opacityChenge,2000);
-			i = i + 1;
-		}
-		}
+
 	
 // перемещение маркера
 	
@@ -102,11 +89,63 @@
 	range.addEventListener('touchend', markPosition);
 	
 
-// смена слайда
+// смена слайда - не закончено, отрабатывается переход только на 2 слайд
+		let dispFlag;
+		let goToSecond = function () {
+		firstSlide.style.display = 'none';
+		secondSlide.style.display = 'block';
+		console.log('secondSlide');
+		};
+		
+		let goToFirst = function () {
+		firstSlide.style.display = 'block';
+		secondSlide.style.display = 'none';
+		console.log('firstSlide');
+		};
+
 	let leftarrow = document.getElementById('leftarrow');
 	let rightarrow = document.getElementById('rightarrow');
+	let firstSlide = document.getElementById('firstSlide');
+	let secondSlide = document.getElementById('secondSlide');
+	let range2 = document.getElementById('range2');
+
 	let changeSlide = function () {
-		alert('hello');
+		let inputs = document.getElementsByName('inputRadio');		
+		let checkedInput = document.querySelector('input[name="inputRadio"]:checked');
+		let inputId = checkedInput.id;
+		console.log(inputId);
+		console.log(range);
+		console.log(picFlag);
+		
+		//передача значения ползунка в новый слайд
+		range2.setAttribute('value', range.value);
+		
+		//маркер над ползунком
+		let marker2 = document.getElementById('marker2');
+		let position2 = 11.5 + (range.value -1.0) * 3.7;
+		marker2.style.left = position2 + '%';
+		
+		//передача чекбоксов
+		let inputDay = document.getElementById('radio1-2');
+		let inputWeek = document.getElementById('radio2-2');
+		let inputMonth = document.getElementById('radio3-2');
+		switch(inputId) {
+			case 'radio1':
+				inputDay.setAttribute('checked', true);
+				break;
+			case 'radio2':
+				inputWeek.setAttribute('checked', true);
+				break;
+			case 'radio3':
+				inputMonth.setAttribute('checked', true);
+				break;
+		};
+				
+		
+		goToSecond();
+		
+		
+		
 	};
 	leftarrow.addEventListener('click', changeSlide);
 	leftarrow.addEventListener('touchstart', changeSlide);
