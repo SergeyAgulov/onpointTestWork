@@ -7,7 +7,7 @@
     
 </head>
 <body>
-   		<div class="slide-top_pill"  draggable="true" id='pillFirstSlide'>
+   		<div class="pill" id='pillFirstSlide'>
     		<img src="./img/780px-Pill.svg%5B1%5D.png" alt="Pill">
 		</div>
     	<div class='page'>
@@ -19,11 +19,14 @@
     			<img src="./img/arrow.png" alt="">
     		</div>
     		<div class='page_rightarrow'></div>
+    		<!-- первый слайд -->
     		<div class='slide' id='firstSlide'>
     			<section class="slide-top">
-    				
-    				<div class='slide-top_patient' >
-    					<img src="img/sad.png" alt="patient" id='patientFirstSlide'>
+    				<div class='slide-top_patientSad' id='sadDiv'>
+    					<img src="img/sad.png" alt="patient" id='patientSad'>
+    				</div>
+    				<div class="slide-top_patientHappy" id='happyDiv'>
+    					<img src="img/happy.png" alt="patient" id='patientHappy'>
     				</div>
     			</section>
     			<section class="slide-bottom">
@@ -44,13 +47,42 @@
      						<label for="radio2" id="radioLabel2"></label>
     						<input type="radio" name="inputRadio" id='radio3' value="3">
     						<label for="radio3" id="radioLabel3"></label>
-    						
     					</div>
     				</form>
-    				
     			</section>
     		</div>
-    		
+    		<!-- второй слайд -->
+    		<div class='slide' id='secondSlide'>
+    			<section class="slide-top">
+    				<div class='slide-top_patientSad' id='sadDiv2'>
+    					<img src="img/sad.png" alt="patient" id='patientSad2'>
+    				</div>
+    				<div class="slide-top_patientHappy" id='happyDiv2'>
+    					<img src="img/happy.png" alt="patient" id='patientHappy2'>
+    				</div>
+    			</section>
+    			<section class="slide-bottom">
+    				<div class="slide-bottom_numbers">
+    					<img src="img/figures.png" alt="numbers">
+    				</div>
+    				<div class='slide-bottom_mark' id='marker2'>
+    					<img src="img/roller%20red.png" alt="numbers">
+    				</div>
+    				<form action="#" class="slide-bottom_form" id='form2' name="form2">
+    					<div class='slide-bottom_input-range'>
+    						<input type="range" min="1" max="21" id='range2'>
+    					</div>
+    					<div class="slide-bottom_input-radio">
+    						<input type="radio" name="inputRadio2" id='radio1-2' value="1">
+    						<label for="radio1-2" id="radioLabel1-2"></label>
+    						<input type="radio" name="inputRadio2" id='radio2-2' value="2">
+     						<label for="radio2-2" id="radioLabel2-2"></label>
+    						<input type="radio" name="inputRadio2" id='radio3-2' value="3">
+    						<label for="radio3-2" id="radioLabel3-2"></label>
+    					</div>
+    				</form>
+    			</section>
+    		</div>
     	</div>
 	<script type="text/javascript" src="script.js"></script>	
 </body>

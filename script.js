@@ -1,29 +1,7 @@
-//Значение range
-		let valueLog = function() {
-		let rangeValue = document.getElementById('range').value;
-		console.log(rangeValue);
-	}
 
-
-		let range = document.getElementById('range');
-		range.addEventListener('click', valueLog);
-
-
-		let f = function () {
-			alert('yoohoo');
-			pill.style.left = 30 + '%';
-
-		}
-		
-		
-		
-		
-		//перемещение таблетки
+		// перемещение таблетки
 		var pill = document.getElementById('pillFirstSlide');
-	
-
-	
-	pill.onmousedown = function(e) {
+		pill.onmousedown = function(e) {
 		function getCoords(elem) { 
 		var box = elem.getBoundingClientRect();
 			return {
@@ -59,7 +37,7 @@
 	};
 	
 	//скрытие картинки
-	let picture = document.getElementById('patientFirstSlide');
+	let picture = document.getElementById('patientSad');
 	let pictureCoords = function () {
 		
 		let pictureLeft = picture.getBoundingClientRect().left;
@@ -71,15 +49,22 @@
 		let pillTop = pill.getBoundingClientRect().top;
 		let pillBottom = pill.getBoundingClientRect().bottom;
 		if (pillLeft > pictureLeft && pillRight < pictureRight && pillBottom < pictureBottom && pillTop > pictureTop) {
-			transOpasity (pill, 2000, 20);
 			pillInvis();
-			
+			pictureChange();
 		};
 	};
 
 // скрытие таблетки
 		let pillInvis = function () {
 		pill.style.display = 'none';
+		}
+		
+// смена картинки
+		let pictureChange = function() {
+		let sad = document.getElementById('sadDiv');
+		let happy = document.getElementById('happyDiv');
+		sad.style.display = 'none';
+		happy.style.display = 'block';
 		}
 // анимация исчезновения
 	
@@ -101,4 +86,30 @@
 		}
 		}
 	
-			
+// перемещение маркера
+	
+	let range = document.getElementById('range');
+	let marker = document.getElementById('marker');
+	let markPosition = function () {
+		let rangeValue = document.getElementById('range').value;
+		let position = 11.5 + (rangeValue -1.0) * 3.7;
+		marker.style.left = position + '%';
+	}
+	range.addEventListener('click', markPosition);
+	range.addEventListener('mousemove', markPosition);
+	range.addEventListener('touchstart', markPosition);
+	range.addEventListener('touchmove', markPosition);
+	range.addEventListener('touchend', markPosition);
+	
+
+// смена слайда
+	let leftarrow = document.getElementById('leftarrow');
+	let rightarrow = document.getElementById('rightarrow');
+	let changeSlide = function () {
+		alert('hello');
+	};
+	leftarrow.addEventListener('click', changeSlide);
+	leftarrow.addEventListener('touchstart', changeSlide);
+	rightarrow.addEventListener('click', changeSlide);
+	rightarrow.addEventListener('touchstart', changeSlide);
+	
